@@ -6,6 +6,7 @@ const FormData = require('form-data');
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
+const port = process.env.PORT || 3000
 
 // Function to read the image file as a buffer
 const readImageFile = (filePath) => {
@@ -83,6 +84,6 @@ app.post('/text-to-image', upload.single('image'), async (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
