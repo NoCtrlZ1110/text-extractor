@@ -52,6 +52,10 @@ const postImage = async (imageBuffer, endpointUrl) => {
   }
 };
 
+app.get('/ping', async (req, res) => res.send('pong 🏓'))
+
+app.get('/health', async (req, res) => res.send('ok'))
+
 // Express route to handle file upload
 app.post('/text-to-image', upload.single('image'), async (req, res) => {
   const { path } = req.file;
